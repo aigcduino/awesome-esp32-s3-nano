@@ -174,6 +174,20 @@ _星标数为 2026-11-05 的快照。_
 - **USB 默认是 HW CDC**（`usb_mode=0`、`cdc_on_boot=1`）。切成 HID 后串口会"消失"，这是正常的。
 - **板子文档在厂商 wiki，不在 GitHub** —— [wiki.wireless-tag.com](https://wiki.wireless-tag.com/docs/zh/WT9932S3-NANO/board_features.html)（功能、引脚、入门指南、规格书 PDF）。厂商 GitHub 组织是 [`Wireless-TAG-Maker`](https://github.com/Wireless-TAG-Maker)。
 
+## 机器可读数据
+
+[`data/dataset.jsonl`](data/dataset.jsonl) 是整个列表导出的 JSONL，可直接灌进检索/向量库，一行一条：
+
+- `kind: "project"` —— 每个条目，带分区、板级支持程度、许可证、星标快照、中英摘要
+- `kind: "knowledge"` —— [`knowledge/*.md`](knowledge) 按 `##` 标题切块，每块前面拼上文档标题，embedding 后仍然自解释
+
+```bash
+python3 scripts/export_dataset.py           # 重新生成
+python3 scripts/export_dataset.py --stats   # 看条数
+```
+
+每条记录都带 `source` 与 `retrieved`。项目摘要为本列表撰写；知识块是对官方文档与实测的**归纳**，不是原文复制。
+
 ## 相关列表
 
 - [awesome](https://github.com/sindresorhus/awesome) - awesome 列表的元列表。

@@ -17,6 +17,7 @@ jobs:
           python-version: '3.12'
       - run: python3 -m pip install --quiet pyyaml
       - run: python3 scripts/build.py --check
+      - run: python3 scripts/export_dataset.py --check
 
   links:
     name: Links resolve

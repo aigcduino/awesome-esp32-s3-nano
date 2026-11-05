@@ -174,6 +174,20 @@ _Star counts: snapshot of 2026-11-05._
 - **USB defaults to HW CDC** (`usb_mode=0`, `cdc_on_boot=1`). Switching to HID makes the serial port disappear — expected.
 - **Board documentation lives on the vendor wiki, not GitHub** — [wiki.wireless-tag.com](https://wiki.wireless-tag.com/docs/en/WT9932S3-NANO/board_features.html) (features, pinout, getting started, datasheet PDF). The vendor's GitHub org is [`Wireless-TAG-Maker`](https://github.com/Wireless-TAG-Maker).
 
+## Machine-readable data
+
+[`data/dataset.jsonl`](data/dataset.jsonl) is the whole list exported as JSONL for retrieval pipelines — one JSON object per line:
+
+- `kind: "project"` — every entry, with section, board support, license, star snapshot and both summaries
+- `kind: "knowledge"` — [`knowledge/*.md`](knowledge) split on `##` headings, each chunk prefixed with its document title so it stays self-describing once embedded
+
+```bash
+python3 scripts/export_dataset.py           # rebuild
+python3 scripts/export_dataset.py --stats   # record counts
+```
+
+Every record carries `source` and `retrieved`. Project summaries are written for this list; knowledge chunks summarise vendor documentation and hands-on checks — they are summaries, not verbatim copies.
+
 ## Related lists
 
 - [awesome](https://github.com/sindresorhus/awesome) - The meta-list of awesome lists.
