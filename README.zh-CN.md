@@ -81,6 +81,7 @@ arduino-cli compile --fqbn esp32:esp32:nano_nora .
 
 - [板级支持与核心](#板级支持与核心)
 - [ESP-IDF 板级支持](#esp-idf-板级支持)
+- [工具链与烧录](#工具链与烧录)
 - [开箱即用的固件](#开箱即用的固件)
 - [项目与示例](#项目与示例)
 - [常用库](#常用库)
@@ -105,6 +106,11 @@ arduino-cli compile --fqbn esp32:esp32:nano_nora .
 
 - [igrr/arduino-nano-esp32](https://github.com/igrr/arduino-nano-esp32) - ESP-IDF 的板级支持包：引脚、外设、内存默认值都封成组件。 *(★8)*
 - [badlogic/arduino-nano-esp32-esp-idf-template](https://github.com/badlogic/arduino-nano-esp32-esp-idf-template) - 已经为这块板接好线的 ESP-IDF 工程模板，clone 下来就能编。 *(★7)*
+
+## 工具链与烧录
+
+- [arduino/arduino-cli](https://github.com/arduino/arduino-cli) - 命令行编译、上传、板卡探测 —— Quickstart 跑的就是它（`--fqbn esp32:esp32:nano_nora`）。 *(通用 ESP32-S3, ★5.1k)*
+- [espressif/esptool](https://github.com/espressif/esptool) - 底层烧录工具。DFU 上传卡住、或要整片 16MB Flash 备份/恢复时用它。 *(通用 ESP32-S3, ★6.5k)*
 
 ## 开箱即用的固件
 
@@ -132,12 +138,16 @@ arduino-cli compile --fqbn esp32:esp32:nano_nora .
 - [benb0jangles/Dustduino](https://github.com/benb0jangles/Dustduino) - 环境监测（PM2.5、温湿度），明确基于 ESP32-S3-Nano。 *(★0)*
 - [smolinde/iot-dashboard](https://github.com/smolinde/iot-dashboard) - ESP32-S3 + 3.5 寸 SPI TFT 的 IoT 面板。 *(★0)*
 - [Wireless-TAG-Maker/wt9932s3-nano-web-radio](https://github.com/Wireless-TAG-Maker/wt9932s3-nano-web-radio) - 官方为这块板写的 ESP-IDF 网络收音机：按 BOOT 进配网，ESP-GMF 解 MP3/AAC/HLS，48kHz I2S 输出。 *(★1)*
+- [SebastianMalunat/BatMetrics-Hardware](https://github.com/SebastianMalunat/BatMetrics-Hardware) - 蝙蝠活动记录仪：传感器 + BLE + 存储跑在 Nano ESP32 上，硬件设计也一并开源。 *(★0)*
+- [Ammaar-Alam/doorUnlocker](https://github.com/Ammaar-Alam/doorUnlocker) - 宿舍开门器：齿轮电机 + 打印主轴，Wi-Fi 驱动，还配了网站和演示视频。 *(★7)*
+- [donth77/mets-home-run-apple](https://github.com/donth77/mets-home-run-apple) - 会动的本垒打苹果计分牌：Nano ESP32 固件负责显示和升降，另配实时网站。 *(★0)*
 
 ## 常用库
 
 - [FastLED/FastLED](https://github.com/FastLED/FastLED) - 可寻址灯带驱动，ESP32-S3 支持良好。 *(通用 ESP32-S3, ★7.5k)*
 - [adafruit/Adafruit_NeoPixel](https://github.com/adafruit/Adafruit_NeoPixel) - 更轻量的 WS2812 驱动。 *(通用 ESP32-S3)*
 - [hathach/tinyusb](https://github.com/hathach/tinyusb) - Arduino 的 HID/MSC 底层就是它；要做 USB 复合设备直接用它。 *(通用 ESP32-S3)*
+- [78/esp-wifi-connect](https://github.com/78/esp-wifi-connect) - 开箱可用的 Wi-Fi 配网组件 —— 官方 web-radio 例程就是用它做 BOOT 键配网。 *(通用 ESP32-S3, ★101)*
 
 ## 仿真与模拟
 
@@ -146,6 +156,7 @@ arduino-cli compile --fqbn esp32:esp32:nano_nora .
 ## 硬件、文档与厂商支持
 
 - [arduino/docs-content](https://github.com/arduino/docs-content) - Arduino 官方文档的源仓库，含 Nano ESP32 相关页面。 *(★398)*
+- [CMB27/Nano2UNO-Adapter-3V3](https://github.com/CMB27/Nano2UNO-Adapter-3V3) - 把 3.3V Nano 规格板转成 UNO 外形的转接板，手头已有扩展板时很省事。 *(无板级支持, ★0)*
 
 ## 兼容板与近亲板
 

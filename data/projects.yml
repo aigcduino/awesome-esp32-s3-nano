@@ -15,6 +15,9 @@ sections:
   - id: idf
     en: ESP-IDF board support
     zh: ESP-IDF 板级支持
+  - id: toolchain
+    en: Toolchain & flashing
+    zh: 工具链与烧录
   - id: firmware
     en: Ready-to-flash firmware
     zh: 开箱即用的固件
@@ -110,6 +113,20 @@ projects:
     license: unknown
     en: Minimal ESP-IDF project template already wired for the board — clone and build.
     zh: 已经为这块板接好线的 ESP-IDF 工程模板，clone 下来就能编。
+
+  # ---------------- toolchain ----------------
+  - repo: arduino/arduino-cli
+    section: toolchain
+    support: generic
+    license: GPL-3.0
+    en: Command-line build, upload and board detection — what the Quickstart runs (`--fqbn esp32:esp32:nano_nora`).
+    zh: 命令行编译、上传、板卡探测 —— Quickstart 跑的就是它（`--fqbn esp32:esp32:nano_nora`）。
+  - repo: espressif/esptool
+    section: toolchain
+    support: generic
+    license: GPL-2.0
+    en: Low-level flasher. Reach for it when a DFU upload gets stuck, or when you need to dump and restore the whole 16 MB flash.
+    zh: 底层烧录工具。DFU 上传卡住、或要整片 16MB Flash 备份/恢复时用它。
 
   # ---------------- firmware ----------------
   - repo: esphome/esphome
@@ -241,6 +258,25 @@ projects:
     en: Official ESP-IDF web radio for this exact board — Wi-Fi provisioning over the BOOT button, MP3/AAC/HLS via ESP-GMF, 48 kHz I2S output.
     zh: 官方为这块板写的 ESP-IDF 网络收音机：按 BOOT 进配网，ESP-GMF 解 MP3/AAC/HLS，48kHz I2S 输出。
 
+  - repo: SebastianMalunat/BatMetrics-Hardware
+    section: projects
+    support: full
+    license: MIT
+    en: Bat-activity recorder — sensors, BLE and logging on a Nano ESP32, with the hardware design published too.
+    zh: 蝙蝠活动记录仪：传感器 + BLE + 存储跑在 Nano ESP32 上，硬件设计也一并开源。
+  - repo: Ammaar-Alam/doorUnlocker
+    section: projects
+    support: full
+    license: MIT
+    en: Dorm-door opener — gearmotor and a printed spindle driven over Wi-Fi, with a companion website and demo video.
+    zh: 宿舍开门器：齿轮电机 + 打印主轴，Wi-Fi 驱动，还配了网站和演示视频。
+  - repo: donth77/mets-home-run-apple
+    section: projects
+    support: full
+    license: MIT
+    en: Animated "home run apple" scoreboard — Nano ESP32 firmware handles the display and the lift, plus a live site.
+    zh: 会动的本垒打苹果计分牌：Nano ESP32 固件负责显示和升降，另配实时网站。
+
   # ---------------- libraries ----------------
   - repo: FastLED/FastLED
     section: libraries
@@ -261,6 +297,13 @@ projects:
     en: The USB stack under Arduino's HID/MSC support — reach for it when you need composite devices.
     zh: Arduino 的 HID/MSC 底层就是它；要做 USB 复合设备直接用它。
 
+  - repo: 78/esp-wifi-connect
+    section: libraries
+    support: generic
+    license: MIT
+    en: Drop-in Wi-Fi provisioning component — the official web-radio demo uses it to serve its BOOT-button setup AP.
+    zh: 开箱可用的 Wi-Fi 配网组件 —— 官方 web-radio 例程就是用它做 BOOT 键配网。
+
   # ---------------- simulation ----------------
   - repo: wokwi/wokwi-boards
     section: simulation
@@ -276,6 +319,13 @@ projects:
     license: CC-BY-SA-4.0
     en: Source of Arduino's official documentation, including the Nano ESP32 pages.
     zh: Arduino 官方文档的源仓库，含 Nano ESP32 相关页面。
+  - repo: CMB27/Nano2UNO-Adapter-3V3
+    section: hardware
+    support: none
+    license: CERN-OHL-P-2.0
+    en: Adapter that drops a 3.3 V Nano-format board into UNO shields — handy when the shield already exists and you want this board on it.
+    zh: 把 3.3V Nano 规格板转成 UNO 外形的转接板，手头已有扩展板时很省事。
+
   - repo: SooDragon/Geekble-nano-ESP32S3
     section: siblings
     support: full

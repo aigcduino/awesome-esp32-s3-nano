@@ -81,6 +81,7 @@ arduino-cli compile --fqbn esp32:esp32:nano_nora .
 
 - [Board support & cores](#board-support--cores)
 - [ESP-IDF board support](#esp-idf-board-support)
+- [Toolchain & flashing](#toolchain--flashing)
 - [Ready-to-flash firmware](#ready-to-flash-firmware)
 - [Projects & examples](#projects--examples)
 - [Libraries](#libraries)
@@ -105,6 +106,11 @@ arduino-cli compile --fqbn esp32:esp32:nano_nora .
 
 - [igrr/arduino-nano-esp32](https://github.com/igrr/arduino-nano-esp32) - Board support package for ESP-IDF — pins, peripherals and memory defaults wrapped up as a component. *(★8)*
 - [badlogic/arduino-nano-esp32-esp-idf-template](https://github.com/badlogic/arduino-nano-esp32-esp-idf-template) - Minimal ESP-IDF project template already wired for the board — clone and build. *(★7)*
+
+## Toolchain & flashing
+
+- [arduino/arduino-cli](https://github.com/arduino/arduino-cli) - Command-line build, upload and board detection — what the Quickstart runs (`--fqbn esp32:esp32:nano_nora`). *(generic ESP32-S3, ★5.1k)*
+- [espressif/esptool](https://github.com/espressif/esptool) - Low-level flasher. Reach for it when a DFU upload gets stuck, or when you need to dump and restore the whole 16 MB flash. *(generic ESP32-S3, ★6.5k)*
 
 ## Ready-to-flash firmware
 
@@ -132,12 +138,16 @@ arduino-cli compile --fqbn esp32:esp32:nano_nora .
 - [benb0jangles/Dustduino](https://github.com/benb0jangles/Dustduino) - Environmental monitor (PM2.5, temperature, humidity) explicitly built on the ESP32-S3-Nano. *(★0)*
 - [smolinde/iot-dashboard](https://github.com/smolinde/iot-dashboard) - IoT dashboard on an ESP32-S3 with a 3.5" SPI TFT. *(★0)*
 - [Wireless-TAG-Maker/wt9932s3-nano-web-radio](https://github.com/Wireless-TAG-Maker/wt9932s3-nano-web-radio) - Official ESP-IDF web radio for this exact board — Wi-Fi provisioning over the BOOT button, MP3/AAC/HLS via ESP-GMF, 48 kHz I2S output. *(★1)*
+- [SebastianMalunat/BatMetrics-Hardware](https://github.com/SebastianMalunat/BatMetrics-Hardware) - Bat-activity recorder — sensors, BLE and logging on a Nano ESP32, with the hardware design published too. *(★0)*
+- [Ammaar-Alam/doorUnlocker](https://github.com/Ammaar-Alam/doorUnlocker) - Dorm-door opener — gearmotor and a printed spindle driven over Wi-Fi, with a companion website and demo video. *(★7)*
+- [donth77/mets-home-run-apple](https://github.com/donth77/mets-home-run-apple) - Animated "home run apple" scoreboard — Nano ESP32 firmware handles the display and the lift, plus a live site. *(★0)*
 
 ## Libraries
 
 - [FastLED/FastLED](https://github.com/FastLED/FastLED) - Addressable LED driver with solid ESP32-S3 support. *(generic ESP32-S3, ★7.5k)*
 - [adafruit/Adafruit_NeoPixel](https://github.com/adafruit/Adafruit_NeoPixel) - Lighter-weight WS2812 driver. *(generic ESP32-S3)*
 - [hathach/tinyusb](https://github.com/hathach/tinyusb) - The USB stack under Arduino's HID/MSC support — reach for it when you need composite devices. *(generic ESP32-S3)*
+- [78/esp-wifi-connect](https://github.com/78/esp-wifi-connect) - Drop-in Wi-Fi provisioning component — the official web-radio demo uses it to serve its BOOT-button setup AP. *(generic ESP32-S3, ★101)*
 
 ## Simulation & emulation
 
@@ -146,6 +156,7 @@ arduino-cli compile --fqbn esp32:esp32:nano_nora .
 ## Hardware, docs & vendor support
 
 - [arduino/docs-content](https://github.com/arduino/docs-content) - Source of Arduino's official documentation, including the Nano ESP32 pages. *(★398)*
+- [CMB27/Nano2UNO-Adapter-3V3](https://github.com/CMB27/Nano2UNO-Adapter-3V3) - Adapter that drops a 3.3 V Nano-format board into UNO shields — handy when the shield already exists and you want this board on it. *(no board support, ★0)*
 
 ## Compatible & sibling boards
 
