@@ -1,0 +1,36 @@
+name: Refresh stars
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 3 1 * *' # monthly; disable this block if you prefer manual runs
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m pip install --quiet pyyaml
+      - name: Refresh star counts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/refresh_stars.py
+      - name: Rebuild READMEs
+        run: python3 scripts/build.py
+      - name: Commit if changed
+        run: |
+          if git diff --quiet; then
+            echo "no changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/stars.json README.md README.zh-CN.md
+          git commit -m "chore: refresh star counts"
+          git push

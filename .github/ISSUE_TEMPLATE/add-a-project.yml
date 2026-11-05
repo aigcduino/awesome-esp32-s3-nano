@@ -1,0 +1,37 @@
+name: Add a project
+description: Suggest a repository for the list
+title: "add: owner/name"
+labels: ["addition"]
+body:
+  - type: input
+    id: repo
+    attributes:
+      label: Repository
+      description: owner/name or a full URL
+      placeholder: owner/name
+    validations:
+      required: true
+  - type: dropdown
+    id: support
+    attributes:
+      label: How does it support the board?
+      options:
+        - Has a board definition (full)
+        - Works on any ESP32-S3 (generic)
+        - Related and useful, but does not run on it (none)
+    validations:
+      required: true
+  - type: input
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Link to the file, board id or README line that proves it works on this board.
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What is it?
+      description: One sentence, factual, no marketing adjectives.
+    validations:
+      required: true
